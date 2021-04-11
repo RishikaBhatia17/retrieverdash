@@ -10,6 +10,8 @@ file_path = os.path.join(settings.PROJECT_ROOT,
                          'dashboard_script/dataset_details.json')
 diff_path = os.path.join(settings.PROJECT_ROOT,
                          'dashboard_script/diffs/')
+old_path = os.path.join(settings.PROJECT_ROOT,
+                         'dashboard_script/old/')
 
 
 class DashboardView(TemplateView):
@@ -31,3 +33,7 @@ class DashboardView(TemplateView):
 class DiffView(View):
     def get(self, request, filename):
         return HttpResponse(open(os.path.join(diff_path, filename)))
+      
+class OldView(View):
+    def get(self, request, filename):
+        return HttpResponse(open(os.path.join(old_path, filename)))
